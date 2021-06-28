@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+    <a class="btn btn-primary" href=" {% url 'food:create_item' %}"> Create</a>
+    {% for item in item_list %}
+        <div class="row">
+        <div class="col-md-3 offset-md-2">
+            <img src="{{ item.item_image }}" alt="{{ item.item_name }}" height="150px" class="card">
+        </div>
+        <div class="col-md-2">
+            {{ item.item_name }} <br>
+            {{ item.user_name }} <br>
+            {{ item.item_desc }} <br>
+            {{ item.item_price }}
+        </div>
+        <div class="col md-2">
+            <a class="btn btn-primary" href=" {% url 'food:detail' item.id %}"> Detail</a>
+        </div>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+                <h1>{{ object.item_name }}</h1>
+                <h1>{{ object.item_desc }}</h1>
+                <h1>{{ object.item_price }}</h1>
+            <a class="btn btn-primary" href=" {% url 'food:update_item' object.id %}"> Edit</a>
+            <a class="btn btn-primary" href=" {% url 'food:delete_item' object.id %}"> Delete</a>
+        </div>
+        <div class="col-md-6">
+            <img src="{{ object.item_image }}" class="card" width="150px" height="150px">
+            <a class="btn btn-primary" href=" {% url 'food:index' %}"> Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
